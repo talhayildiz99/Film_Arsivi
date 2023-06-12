@@ -11,25 +11,17 @@ using System.Data.SqlClient;
 
 namespace Film_Arsivim
 {
-    public partial class Form1 : Form
+    public partial class TamEkran : Form
     {
-        public Form1()
+        public TamEkran()
         {
             InitializeComponent();
         }
-
         SqlConnection baglanti = new SqlConnection(@"Data Source=DESKTOP-DSQNOEI\SQLEXPRESS03;Initial Catalog=DbFilmArsivim;Integrated Security=True");
+        private void TamEkran_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
 
-        void Filmler()
-        {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("Select Ad, Kategori from TblFilmler", baglanti);
-            DataTable dataTable= new DataTable();
-            dataAdapter.Fill(dataTable);
-            dataGridView1.DataSource= dataTable;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Filmler();
         }
     }
 }
