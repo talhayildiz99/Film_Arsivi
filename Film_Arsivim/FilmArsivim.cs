@@ -28,6 +28,16 @@ namespace Film_Arsivim
             dataAdapter.Fill(dataTable);
             dataGridView1.DataSource= dataTable;
         }
+        Color RastgeleRenk()
+        {
+            Random rnd = new Random();
+            int kirmizi = rnd.Next(0,255);
+            int yesil = rnd.Next(0,255);
+            int mavi = rnd.Next(0,255);
+
+            Color color = Color.FromArgb(kirmizi,yesil, mavi);
+            return color;
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             Filmler();
@@ -69,7 +79,12 @@ namespace Film_Arsivim
 
         private void BtnRenkDegistir_Click(object sender, EventArgs e)
         {
+            this.BackColor = RastgeleRenk();
+        }
 
+        private void BtnTamEkran_Click(object sender, EventArgs e)
+        {
+            //Yapım Aşamasında
         }
     }
 }
